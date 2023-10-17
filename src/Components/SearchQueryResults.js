@@ -79,11 +79,11 @@ function SearchQueryResult(props) {
                         </div>
                     </>
                     :
-                    <div className="movie-heading">
-                        <div className="movie-heading-title">
-                            {ContextItems.searchQueryResults.length} Search Results
-                        </div>
-                    </div>
+                    // <div className="movie-heading">
+                    //     <div className="movie-heading-title">
+                    //         {ContextItems.searchQueryResults.length} Search Results
+                    //     </div>
+                    // </div>
             }
         </>
     )
