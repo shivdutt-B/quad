@@ -494,7 +494,8 @@ body {
 /* Dedicated movie */
 .carousel-movie,
 .carousel-series,
-.carousel-element-info {
+.carousel-element-info,
+.loading-screen {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -508,13 +509,27 @@ body {
 }
 .carousel-movie > a,
 .carousel-series > a,
-.carousel-element-info > a {
+.carousel-element-info > a,
+.loading-screen-element-container {
   cursor: pointer;
   height: 180px;
   width: 100%;
   max-width: 240px;
   padding: 0 10px;
   margin: 10px auto;
+}
+.loading-screen-posters{
+  width:220px;
+  height:140px;
+  border-radius: 5px;
+  background-color: #b6b6b6;
+}
+.loading-screen-desc{
+  width:220px;
+  height:40px;
+  margin-top:5px;
+  border-radius: 5px;
+  background-color: #b6b6b6;
 }
 .movie-name-rating-container,
 .series-name-rating-container {

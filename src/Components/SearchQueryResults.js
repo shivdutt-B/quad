@@ -20,7 +20,7 @@ function SearchQueryResult(props) {
             fetchedData === null ? ContextItems.updateSearchQuery([]) : ContextItems.updateSearchQuery(fetchedData)
             props.setProgress(100)
             props.setLoadDetector(true)
-            setCheckLoaded(true)
+            // setCheckLoaded(true)
         } catch (error) {
 
         }
@@ -92,8 +92,13 @@ function SearchQueryResult(props) {
                         }
                     </>
                     :
-                    <div>
-                        <h1>Loading going on</h1>
+                    <div className="loading-screen">
+                        <div className='loading-screen-posters'>
+                            <p> SOME TO SHOW</p>
+                        </div>
+                        <div className='loading-screen-desc'>
+
+                        </div>
                     </div>
             }
         </>
