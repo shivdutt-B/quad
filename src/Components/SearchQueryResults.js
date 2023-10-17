@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Server from "../Assets/server.png"
 import { Link } from 'react-router-dom'
 import TransferData from '../GeneralJs/TransferData'
@@ -22,7 +22,7 @@ function SearchQueryResult(props) {
             props.setLoadDetector(true)
             setCheckLoaded(true)
         } catch (error) {
-            
+
         }
     }
 
@@ -32,7 +32,7 @@ function SearchQueryResult(props) {
                 let searchQuery = ContextItems.query
                 await fetchApiData(searchQuery)
             } catch (error) {
-                
+
             }
         })()
     }, [ContextItems.query])
@@ -40,50 +40,61 @@ function SearchQueryResult(props) {
     return (
         <>
             {
-                
-                ContextItems.searchQueryResults.length > 0 ?
+
+
+                checkLoaded ?
                     <>
-                        <div className="movie-container">
-                            <div className="movie-heading">
-                                <div className="movie-heading-title">
-                                    {ContextItems.searchQueryResults.length} Search Results
+                        {
+
+                            ContextItems.searchQueryResults.length > 0 ?
+                                <>
+                                    <div className="movie-container">
+                                        <div className="movie-heading">
+                                            <div className="movie-heading-title">
+                                                {ContextItems.searchQueryResults.length} Search Results
+                                            </div>
+                                        </div>
+                                        <div className="wrapper-movie">
+                                            <div className="carousel-movie">
+                                                {
+                                                    ContextItems.searchQueryResults.map((element) => {
+                                                        return (
+                                                            <>
+                                                                <Link onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="movie-item info-to-store">
+                                                                    <div className="movie-poster">
+                                                                        {element.poster.length > 3 ? <img src={element.poster} alt="poster" /> : <img src={Server} alt="poster" />}
+                                                                    </div>
+                                                                    <div className="movie-info">
+                                                                        <div className="movie-name-rating-container">
+                                                                            <div className="movie-name">
+                                                                                {element.title.length > 0 ? element.title : '--'}
+                                                                            </div>
+                                                                            <div className="movie-rating">
+                                                                                {element.rating.length > 0 ? element.rating : "--"}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </Link>
+                                                            </>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                                :
+                                <div className="movie-heading">
+                                    <div className="movie-heading-title">
+                                        {ContextItems.searchQueryResults.length} Search Results
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="wrapper-movie">
-                                <div className="carousel-movie">
-                                    {
-                                        ContextItems.searchQueryResults.map((element) => {
-                                            return (
-                                                <>
-                                                    <Link onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="movie-item info-to-store">
-                                                        <div className="movie-poster">
-                                                            {element.poster.length > 3 ? <img src={element.poster} alt="poster" /> : <img src={Server} alt="poster" />}
-                                                        </div>
-                                                        <div className="movie-info">
-                                                            <div className="movie-name-rating-container">
-                                                                <div className="movie-name">
-                                                                    {element.title.length > 0 ? element.title : '--'}
-                                                                </div>
-                                                                <div className="movie-rating">
-                                                                    {element.rating.length > 0 ? element.rating : "--"}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                </>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </>
                     :
-                    // <div className="movie-heading">
-                    //     <div className="movie-heading-title">
-                    //         {ContextItems.searchQueryResults.length} Search Results
-                    //     </div>
-                    // </div>
+                    <div>
+                        <h1>Loading going on</h1>
+                    </div>
             }
         </>
     )
