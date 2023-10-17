@@ -37,6 +37,17 @@ function SearchQueryResult(props) {
         })()
     }, [ContextItems.query])
 
+    function createElement() {
+        let container = createElement('div')
+        console.log('code99',container)
+        let poster = createElement('div').classList.add('loading-screen-poster');
+        let description = createElement('div').classList.add('loading-screen-desc');
+        container.appendChild(poster);
+        container.appendChild(description);
+        document.getElementsByClassName('loading-screen')[0].appendChild(container);
+        // document.getElementsByClassName('loading-screen')[0].appendChild(container);
+    }
+
     return (
         <>
             {
@@ -93,12 +104,9 @@ function SearchQueryResult(props) {
                     </>
                     :
                     <div className="loading-screen">
-                        <div className='loading-screen-posters'>
-                            <p> SOME TO SHOW</p>
-                        </div>
-                        <div className='loading-screen-desc'>
-
-                        </div>
+                        {
+                            createElement()
+                        }
                     </div>
             }
         </>
