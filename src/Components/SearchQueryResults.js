@@ -20,7 +20,7 @@ function SearchQueryResult(props) {
             fetchedData === null ? ContextItems.updateSearchQuery([]) : ContextItems.updateSearchQuery(fetchedData)
             props.setProgress(100)
             props.setLoadDetector(true)
-            // setCheckLoaded(true)
+            setCheckLoaded(true)
         } catch (error) {
 
         }
@@ -38,15 +38,33 @@ function SearchQueryResult(props) {
     }, [ContextItems.query])
 
     function createElement() {
-        let container = document.createElement('div')
-        console.log('code99',container)
-        let poster = document.createElement('div')
-        let description = document.createElement('div')
-        console.log('code99',poster,description)
-        container.appendChild(poster);
-        container.appendChild(description);
-        // document.getElementsByClassName('loading-screen')[0].appendChild(container);
-        document.body.appendChild(container);
+        try {
+            console.log('Creating element')
+            let container = document.createElement('div')
+            container.classList.add('loading-screen-element-container')
+
+            let poster = document.createElement('div')
+            poster.classList.add('loading-screen-posters')
+
+            let description = document.createElement('div')
+            description.classList.add('loading-screen-desc')
+
+            container.appendChild(poster);
+            container.appendChild(description);
+            document.getElementsByClassName('loading-screen')[0].appendChild(container);
+        } catch (error) {
+
+        }
+    }
+    function genEle() {
+        return (
+            <div className="movie-container">
+                <div className="loading-screen-element-container">
+                    <div className="loading-screen-poster"></div>
+                    <div className="loading-screen-desc"></div>
+                </div>
+            </div>
+        )
     }
 
     return (
@@ -104,13 +122,11 @@ function SearchQueryResult(props) {
                         }
                     </>
                     :
-                    <div className="loading-screen">
+                    <>
                         {
-                            // let container = createElement('div')
-                            createElement()
-                            // document.getElementsByClassName('loading-screen').appendChild(document.createElement('div'))
+                            genEle()
                         }
-                    </div>
+                    </>
             }
         </>
     )
