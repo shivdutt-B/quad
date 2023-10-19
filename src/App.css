@@ -209,6 +209,7 @@ body {
   border-radius:10px;
   padding:0 2%;
 }
+
 .display-show-heading,
 .display-movie-heading,
 .display-series-heading,
@@ -494,8 +495,7 @@ body {
 /* Dedicated movie */
 .carousel-movie,
 .carousel-series,
-.carousel-element-info,
-.loading-screen {
+.carousel-element-info {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -506,6 +506,11 @@ body {
   margin: 1rem 0 0 1rem;
   font-size: var(--heading-font-size);
   color: var(--theam-color);
+}
+.movie-container-loading{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .carousel-movie > a,
 .carousel-series > a,
@@ -518,18 +523,45 @@ body {
   padding: 0 10px;
   margin: 10px auto;
 }
-.loading-screen-posters{
-  width:220px;
+.loading-screen-element-container{
+  /* background-color: #a5a4a4; */
+  /* animation: glow 2s linear infinite alternate; */
+  border-radius:10px;
+}
+.loading-screen-element-poster{
+  margin-bottom:4px;
+  animation: glow 2s linear infinite alternate;
+  width:inherit;
   height:140px;
   border-radius: 5px;
-  background-color: #b6b6b6;
 }
-.loading-screen-desc{
-  width:220px;
-  height:40px;
-  margin-top:5px;
-  border-radius: 5px;
-  background-color: #b6b6b6;
+.loading-screen-element-desc{
+  display:grid;
+  grid-template-columns: 70% 30%;
+  width:inherit;
+  /* animation: glow 2s linear infinite alternate; */
+  height:30px;
+}
+.loading-screen-element-desc div{
+  border-radius: 3px;
+}
+.loading-screen-element-desc-title{
+  animation: glow 2s linear infinite alternate;
+  margin-right: 10px;
+}
+.loading-screen-element-desc-rating{
+  animation: glow 2s linear infinite alternate;
+}
+@keyframes glow {
+  0% {
+      background-color: #3f3f3f88;
+  }
+  50% {
+    background-color: #3f3f3f; 
+  }
+  100% {
+    background-color: #252525;
+  }
 }
 .movie-name-rating-container,
 .series-name-rating-container {
@@ -621,6 +653,25 @@ body {
 }
 .variable-width .slick-slide {
   margin: 0 15px;
+}
+
+@media only screen and (max-width: 490px) {
+  .movie-container-loading{
+    display:block;
+  }
+  .loading-screen-element-container{
+    /* width:100%; */
+    height:250px;
+    margin:30px 0 ;
+    max-width: 100%;
+  }
+  .loading-screen-element-poster{
+    height:210px;
+  }
+  .loading-screen-element-desc{
+    height:40px
+  }
+
 }
 
 @media only screen and (max-width: 650px) {

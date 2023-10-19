@@ -13,6 +13,7 @@ function SearchQueryResult(props) {
 
     async function fetchApiData(query) {
         try {
+            setCheckLoaded(false)
             props.setLoadDetector(false)
             props.setProgress(40)
             ContextItems.updateSearchQuery([])
@@ -20,7 +21,7 @@ function SearchQueryResult(props) {
             fetchedData === null ? ContextItems.updateSearchQuery([]) : ContextItems.updateSearchQuery(fetchedData)
             props.setProgress(100)
             props.setLoadDetector(true)
-            setCheckLoaded(true)
+            // setCheckLoaded(true)
         } catch (error) {
 
         }
@@ -57,12 +58,26 @@ function SearchQueryResult(props) {
         }
     }
     function genEle() {
-        return (
-            <div className="movie-container">
+        let screenArea = window.innerWidth * window.innerHeight
+        let boxDimension = 240 * 180
+        let nrOfBox = Math.floor(screenArea / boxDimension)
+        const arrayOfElements = [];
+        for (let i = 0; i < nrOfBox; i++) {
+            arrayOfElements.push(
                 <div className="loading-screen-element-container">
-                    <div className="loading-screen-poster"></div>
-                    <div className="loading-screen-desc"></div>
+                    <div className="loading-screen-element-poster">
+
+                    </div>
+                    <div className="loading-screen-element-desc">
+                        <div className="loading-screen-element-desc-title"></div>
+                        <div className="loading-screen-element-desc-rating"></div>
+                    </div>
                 </div>
+            );
+        }
+        return (
+            <div className="movie-container-loading">
+                {arrayOfElements}
             </div>
         )
     }
@@ -125,6 +140,7 @@ function SearchQueryResult(props) {
                     <>
                         {
                             genEle()
+
                         }
                     </>
             }
