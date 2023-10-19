@@ -199,7 +199,7 @@ body {
   display: none;
 }
 .display-show-container{
-  /* padding:0 2%; */
+  padding:0 2%;
 }
 .display-movie-container,
 .display-series-container,
@@ -751,7 +751,7 @@ body {
   }
   .display-show-container,
   .element-info-container {
-    margin-top: 0;
+    margin: 0 2%;
   }
   .nav-bar-list {
     flex-direction: column;
