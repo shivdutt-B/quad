@@ -38,25 +38,6 @@ function SearchQueryResult(props) {
         })()
     }, [ContextItems.query])
 
-    // function createElement() {
-    //     try {
-    //         console.log('Creating element')
-    //         let container = document.createElement('div')
-    //         container.classList.add('loading-screen-element-container')
-
-    //         let poster = document.createElement('div')
-    //         poster.classList.add('loading-screen-posters')
-
-    //         let description = document.createElement('div')
-    //         description.classList.add('loading-screen-desc')
-
-    //         container.appendChild(poster);
-    //         container.appendChild(description);
-    //         document.getElementsByClassName('loading-screen')[0].appendChild(container);
-    //     } catch (error) {
-
-    //     }
-    // }
     function genEle() {
         let screenArea = window.innerWidth * window.innerHeight
         let boxDimension = 240 * 180
@@ -85,7 +66,6 @@ function SearchQueryResult(props) {
     return (
         <>
             {
-
 
                 checkLoaded ?
                     <>
