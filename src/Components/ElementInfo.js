@@ -39,7 +39,7 @@ function ElementInfo(props) {
     }, [])
 
     return (
-        ContextItems.data.length > 0 &&
+        ContextItems.data.length > 0 ?
         <>
             <div className="element-info-container">
                 <div className="element-info">
@@ -207,6 +207,10 @@ function ElementInfo(props) {
 
                 </>
             }
+        </>
+        :
+        <>
+        
         </>
 
     )

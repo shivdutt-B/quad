@@ -70,6 +70,54 @@ const StorageContextData = (props) => {
         document.querySelector(".search-bar-small-screen").classList.toggle('search-bar-small-screen-visible')
     }
 
+    //Generating loading screen of series:
+    function loadingSeries() {
+        let exoSeries = [];
+        for (let i = 0; i < 10; i++) {
+            exoSeries.push(
+                <div style={{ width: 250}} className="display-series-item info-to-store exo-series-element">
+                    <div className="display-series-poster exo-series-element-poster"></div>
+                </div>
+            )
+        }
+        return (
+            <div className="display-series-container">
+                <div className="display-series-heading">
+                    <div className="display-series-heading-title">
+                        Series
+                    </div>
+                </div>
+                <Slider {...ContextItems.movieAndSeriesSettings}>
+                    {exoSeries}
+                </Slider>
+            </div>
+        )
+    }
+
+    //Generating loading screen of movies:
+    function loadingMovies() {
+        let exoSeries = [];
+        for (let i = 0; i < 10; i++) {
+            exoSeries.push(
+                <div style={{ width: 250}} className="display-series-item info-to-store exo-series-element">
+                    <div className="display-series-poster exo-series-element-poster"></div>
+                </div>
+            )
+        }
+        return (
+            <div className="display-series-container">
+                <div className="display-series-heading">
+                    <div className="display-series-heading-title">
+                        Movie
+                    </div>
+                </div>
+                <Slider {...ContextItems.movieAndSeriesSettings}>
+                    {exoSeries}
+                </Slider>
+            </div>
+        )
+    }
+    
     return (
         <StorageContext.Provider value={{ data, updateData, Shuffler, arrangeShow, searchQueryResults, updateSearchQuery, query, updateQuery, displayShowSettings, movieAndSeriesSettings, handleHamCross, handleSearchIcon }}>
             {props.children}
