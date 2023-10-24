@@ -7,7 +7,7 @@ import { StorageContext } from '../Context/StorageContext'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
-
+import { useLocation } from 'react-router-dom';
 
 function ElementInfo(props) {
 
@@ -22,7 +22,9 @@ function ElementInfo(props) {
             ContextItems.updateData(fetchedData)
             props.setProgress(100)
             props.setLoadDetector(true)
-        } catch (e) { }
+        } catch (e) {
+
+         }
     }
 
     useEffect(() => {
