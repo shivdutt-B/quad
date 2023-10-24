@@ -1,8 +1,13 @@
 //Takes generes and fetch movies and shows according to that.
 import FetchGeneresMovie from "./FetchGeneresMovie";
 import FetchGeneres from "./FetchGenres";
+import { StorageContext } from '../Context/StorageContext';
+import { useContext } from "react";
+
 async function GenreAndMovieFetcher() {
+  const ContextItems = useContext(StorageContext)
    try {
+    ContextItems.data.length = 0;
     let netflix_id = await JSON.parse(sessionStorage.getItem('movieInfo')).netflix_id;
     let results = await FetchGeneres(netflix_id)
     let generesRefactor = results.map((element) => {

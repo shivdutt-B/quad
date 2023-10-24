@@ -30,7 +30,9 @@ function ElementInfo(props) {
             try {
                 props.setProgress(40)
                 props.setLoadDetector(false)
+                // ContextItems.data.length = 0
                 let fetchedData = await GenreAndMovieFetcher()
+                console.log('check it')
                 await ContextItems.updateData(fetchedData)
                 props.setLoadDetector(true)
                 props.setProgress(100)
@@ -38,8 +40,52 @@ function ElementInfo(props) {
         })()
     }, [])
 
+    function loadingSeries() {
+        let exoSeries = [];
+        for (let i = 0; i < 10; i++) {
+            exoSeries.push(
+                <div style={{ width: 250 }} className="display-series-item info-to-store exo-series-element">
+                    <div className="display-series-poster exo-series-element-poster"></div>
+                </div>
+            )
+        }
+        return (
+            <div className="display-series-container">
+                <div className="display-series-heading">
+                    <div className="display-series-heading-title">
+                        Related Series
+                    </div>
+                </div>
+                <Slider {...ContextItems.movieAndSeriesSettings}>
+                    {exoSeries}
+                </Slider>
+            </div>
+        )
+    }
+    function loadingMovies() {
+        let exoSeries = [];
+        for (let i = 0; i < 10; i++) {
+            exoSeries.push(
+                <div style={{ width: 250 }} className="display-series-item info-to-store exo-series-element">
+                    <div className="display-series-poster exo-series-element-poster"></div>
+                </div>
+            )
+        }
+        return (
+            <div className="display-series-container">
+                <div className="display-series-heading">
+                    <div className="display-series-heading-title">
+                        Related Movie
+                    </div>
+                </div>
+                <Slider {...ContextItems.movieAndSeriesSettings}>
+                    {exoSeries}
+                </Slider>
+            </div>
+        )
+    }
+
     return (
-        ContextItems.data.length > 0 ?
         <>
             <div className="element-info-container">
                 <div className="element-info">
@@ -115,102 +161,107 @@ function ElementInfo(props) {
             </div>
 
             {
-            ContextItems.data.length > 0 &&
-                <>
-                    {
-                        (ContextItems.data).filter((element) => {
-                            return element.title_type == 'movie'
-                        }).length > 0 &&
-                        <div className="display-movie-container">
-                            <div className="display-movie-heading">
-                                <div className="display-movie-heading-title">
-                                    Related Movies
+                ContextItems.data.length > 0 ?
+                    <>
+                        {
+                            (ContextItems.data).filter((element) => {
+                                return element.title_type == 'movie'
+                            }).length > 0 &&
+                            <div className="display-movie-container">
+                                <div className="display-movie-heading">
+                                    <div className="display-movie-heading-title">
+                                        Related Movies
+                                    </div>
+                                    <div className="display-movie-heading-show-more">
+                                        <Link to="/related movies">
+                                            &rarr;
+                                        </Link>
+                                    </div>
                                 </div>
-                                <div className="display-movie-heading-show-more">
-                                    <Link to="/related movies">
-                                        &rarr;
-                                    </Link>
-                                </div>
-                            </div>
 
-                            <Slider {...ContextItems.movieAndSeriesSettings}>
-                                {
-                                    ContextItems.Shuffler(ContextItems.data).filter((element) => {
-                                        return element.title_type == 'movie'
-                                    }).slice(0, 50).map((element) => {
-                                        return (
-                                            <Link style={{ width: 250 }} onClick={() => { CallGenreAndDataOnClick(element) }} to="/elementinfo" key={element.netflix_id} className="display-movie-item info-to-store element-info-related-movies-series">
-                                                <div className="display-movie-poster">
-                                                    {element.poster.length > 3 ? <img src={element.poster} alt="poster" /> : <img src={Server} alt="poster" />}
-                                                </div>
-                                                <div className="display-movie-info">
-                                                    <div className="display-movie-name-rating-container">
-                                                        <div className="display-movie-name">
-                                                            {element.title}
-                                                        </div>
-                                                        <div className="display-movie-rating">
-                                                            {element.rating}
+                                <Slider {...ContextItems.movieAndSeriesSettings}>
+                                    {
+                                        ContextItems.Shuffler(ContextItems.data).filter((element) => {
+                                            return element.title_type == 'movie'
+                                        }).slice(0, 50).map((element) => {
+                                            return (
+                                                <Link style={{ width: 250 }} onClick={() => { CallGenreAndDataOnClick(element) }} to="/elementinfo" key={element.netflix_id} className="display-movie-item info-to-store element-info-related-movies-series">
+                                                    <div className="display-movie-poster">
+                                                        {element.poster.length > 3 ? <img src={element.poster} alt="poster" /> : <img src={Server} alt="poster" />}
+                                                    </div>
+                                                    <div className="display-movie-info">
+                                                        <div className="display-movie-name-rating-container">
+                                                            <div className="display-movie-name">
+                                                                {element.title}
+                                                            </div>
+                                                            <div className="display-movie-rating">
+                                                                {element.rating}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </Link>
-                                        )
-                                    })
-                                }
-                            </Slider>
-                        </div>
-                    }
-
-                    {
-                        (ContextItems.data).filter((element) => {
-                            return element.title_type == 'series'
-                        }).length > 0 &&
-                        <div className="display-series-container">
-                            <div className="display-series-heading">
-                                <div className="display-series-heading-title">
-                                    Related Series
-                                </div>
-                                <div className="display-series-heading-show-more">
-                                    <Link to="/related series">
-                                        &rarr;
-                                    </Link>
-                                </div>
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                </Slider>
                             </div>
+                        }
 
-                            <Slider {...ContextItems.movieAndSeriesSettings}>
-                                {
-                                    ContextItems.Shuffler(ContextItems.data).filter((element) => {
-                                        return element.title_type == 'series'
-                                    }).slice(0, 50).map((element) => {
-                                        return (
-                                            <Link style={{ width: 250 }} onClick={() => { CallGenreAndDataOnClick(element) }} to="/elementinfo" key={element.netflix_id} className="display-series-item info-to-store">
-                                                <div className="display-series-poster">
-                                                    {element.poster.length > 3 ? <img src={element.poster} alt="poster" /> : <img src={Server} alt="poster" />}
-                                                </div>
-                                                <div className="display-series-info">
-                                                    <div className="display-series-name-rating-container">
-                                                        <div className="display-series-name">
-                                                            {element.title}
-                                                        </div>
-                                                        <div className="display-series-rating">
-                                                            {element.rating}
+                        {
+                            (ContextItems.data).filter((element) => {
+                                return element.title_type == 'series'
+                            }).length > 0 &&
+                            <div className="display-series-container">
+                                <div className="display-series-heading">
+                                    <div className="display-series-heading-title">
+                                        Related Series
+                                    </div>
+                                    <div className="display-series-heading-show-more">
+                                        <Link to="/related series">
+                                            &rarr;
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                <Slider {...ContextItems.movieAndSeriesSettings}>
+                                    {
+                                        ContextItems.Shuffler(ContextItems.data).filter((element) => {
+                                            return element.title_type == 'series'
+                                        }).slice(0, 50).map((element) => {
+                                            return (
+                                                <Link style={{ width: 250 }} onClick={() => { CallGenreAndDataOnClick(element) }} to="/elementinfo" key={element.netflix_id} className="display-series-item info-to-store">
+                                                    <div className="display-series-poster">
+                                                        {element.poster.length > 3 ? <img src={element.poster} alt="poster" /> : <img src={Server} alt="poster" />}
+                                                    </div>
+                                                    <div className="display-series-info">
+                                                        <div className="display-series-name-rating-container">
+                                                            <div className="display-series-name">
+                                                                {element.title}
+                                                            </div>
+                                                            <div className="display-series-rating">
+                                                                {element.rating}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </Link>
-                                        )
-                                    })
-                                }
-                            </Slider>
-                        </div>
-                    }
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                </Slider>
+                            </div>
+                        }
 
-                </>
+                    </>
+                    :
+                    <>
+                        {
+                            loadingSeries()
+                        }
+                        {
+                            loadingMovies()
+                        }
+                    </>
             }
-        </>
-        :
-        <>
-        
         </>
 
     )
