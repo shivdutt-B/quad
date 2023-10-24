@@ -1,15 +1,24 @@
 import React from 'react'
 import { useContext } from "react"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import TransferData from '../GeneralJs/TransferData'
 import { StorageContext } from '../Context/StorageContext'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useEffect } from 'react'
+import FetchData from '../GeneralJs/FetchData';
+import fetchDataCaller from '../GeneralJs/FetchDataCaller'
 
 
 function LandingPoster(props) {
     const ContextItems = useContext(StorageContext);
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        props.setLimit(200)
+        fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector,props.setProgress, props.setData, navigate)
+    },[])
 
     function loadingSeries() {
         let exoSeries = [];

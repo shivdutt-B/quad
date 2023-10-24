@@ -7,7 +7,6 @@ import { useState } from "react"
 import { useContext } from 'react'
 
 function Navbar() {
-
     const [inputData, setInputData] = useState('')
     const navigate = useNavigate();
     const ContextItems = useContext(StorageContext)
@@ -22,7 +21,7 @@ function Navbar() {
         <>
             <div className="nav-bar" id="top-point">
                 <div className="nav-bar-logo">
-                    <img src={Logo} alt="" />
+                    <img src={Logo} alt=""/>
                     <div className="nav-bar-links">
                         <ul className="nav-bar-list nav-bar-list-hide">
                             <li className="nav-link">

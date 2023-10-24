@@ -7,10 +7,10 @@ import { StorageContext } from '../Context/StorageContext'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick"
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function ElementInfo(props) {
-
+    let navigate = useNavigate();
     const ContextItems = useContext(StorageContext)
 
     async function CallGenreAndDataOnClick(element) {
@@ -23,7 +23,7 @@ function ElementInfo(props) {
             props.setProgress(100)
             props.setLoadDetector(true)
         } catch (e) {
-
+            navigate('/error')
          }
     }
 

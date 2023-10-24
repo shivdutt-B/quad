@@ -19,6 +19,9 @@ import Series from "./Components/Series"
 import SearchQueryResults from './Components/SearchQueryResults';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ErrorPage from './Components/ErrorPage';
+// import { useNavigate } from "react-router-dom";
+
 
 
 function App() {
@@ -26,23 +29,6 @@ function App() {
   const [data, setData] = useState([])
   const [limit, setLimit] = useState(200)
   const [loadDetector, setLoadDetector] = useState(false)
-
-  async function fetchDataCaller(limit, setLimit) {
-    setLoadDetector(false)
-    setProgress(40)
-    let moreData = await FetchData(limit)
-    await setData(moreData)
-    setLimit(limit + 200)
-    setProgress(100)
-    setLoadDetector(true)
-  }
-
-  useEffect(() => {
-    setLimit(200)
-    fetchDataCaller(limit, setLimit)
-  }, [])
-
-
 
 
   return (
@@ -56,13 +42,14 @@ function App() {
           />
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<DisplayTrending data={data} setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
-            <Route exact path="/movies" element={<Movie data={data} limit={limit} setLimit={setLimit} fetchDataCaller={fetchDataCaller} setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
-            <Route exact path="/series" element={<Series data={data} limit={limit} setLimit={setLimit} fetchDataCaller={fetchDataCaller} setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
+            <Route exact path="/" element={<DisplayTrending setData={setData} limit = {limit} setLimit = {setLimit} data={data} setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
+            <Route exact path="/movies" element={<Movie data={data} setData={setData} limit={limit} setLimit={setLimit} setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
+            <Route exact path="/series" element={<Series data={data} setData={setData} limit={limit} setLimit={setLimit} setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
             <Route exact path="/elementinfo" element={<ElementInfo setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
             <Route exact path="/related movies" element={<MoreRelatedMovies setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
             <Route exact path="/related series" element={<MoreRelatedSeries setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
             <Route exact path="/search results" element={<SearchQueryResults setProgress={setProgress} setLoadDetector={setLoadDetector} />} />
+            <Route exact path="/error" element={<ErrorPage/>} />
           </Routes>
           <Footer loadDetector={loadDetector} />
         </BrowserRouter>

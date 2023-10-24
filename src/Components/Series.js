@@ -2,13 +2,16 @@ import React from 'react'
 import Server from "../Assets/server.png"
 import { Link } from 'react-router-dom'
 import TransferData from '../GeneralJs/TransferData'
+import { useNavigate } from 'react-router-dom'
+import fetchDataCaller from '../GeneralJs/FetchDataCaller'
 
 function Series(props) {
+    const navigate = useNavigate()
 
     async function fetchMoreData() {
         try {
             await props.setLimit(props.limit + 200)
-            await props.fetchDataCaller(props.limit, props.setLimit)
+            fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector,props.setProgress, props.setData, navigate)
         } catch (error) {
 
         }
