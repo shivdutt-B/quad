@@ -18,7 +18,9 @@ function Movie(props) {
                 ContextItems.updateData(fetchedData)
                 props.setProgress(100)
                 props.setLoadDetector(true)
-            } catch (e) { }
+            } catch (e) { 
+                // navigate('/error')
+            }
         })()
     }, [])
     

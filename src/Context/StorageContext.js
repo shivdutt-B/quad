@@ -70,8 +70,11 @@ const StorageContextData = (props) => {
         document.querySelector(".search-bar-small-screen").classList.toggle('search-bar-small-screen-visible')
     }
 
+    //Check if data is already there
+    const [isDataLoaded, setIsDataLoaded] = useState(true)
+
     return (
-        <StorageContext.Provider value={{ data, updateData, Shuffler, arrangeShow, searchQueryResults, updateSearchQuery, query, updateQuery, displayShowSettings, movieAndSeriesSettings, handleHamCross, handleSearchIcon }}>
+        <StorageContext.Provider value={{ data, updateData, Shuffler, arrangeShow, searchQueryResults, updateSearchQuery, query, updateQuery, displayShowSettings, movieAndSeriesSettings, handleHamCross, handleSearchIcon, isDataLoaded,setIsDataLoaded }}>
             {props.children}
         </StorageContext.Provider>
     );

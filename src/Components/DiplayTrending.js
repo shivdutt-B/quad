@@ -6,7 +6,7 @@ import { StorageContext } from '../Context/StorageContext'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import FetchData from '../GeneralJs/FetchData';
 import fetchDataCaller from '../GeneralJs/FetchDataCaller'
 
@@ -14,10 +14,15 @@ import fetchDataCaller from '../GeneralJs/FetchDataCaller'
 function LandingPoster(props) {
     const ContextItems = useContext(StorageContext);
     const navigate = useNavigate()
+    const [isDataLoaded, setIsDataLoaded] = useState(true)
     
     useEffect(() => {
-        props.setLimit(200)
-        fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector,props.setProgress, props.setData, navigate)
+        if (ContextItems.isDataLoaded){
+            console.log('loaded', isDataLoaded)
+            props.setLimit(200)
+            fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector,props.setProgress, props.setData, navigate)
+            ContextItems.setIsDataLoaded(false)
+        }
     },[])
 
     function loadingSeries() {
@@ -85,7 +90,7 @@ function LandingPoster(props) {
                                             }).sort(ContextItems.arrangeShow).slice(0, 6).map((element) => {
                                                 return (
                                                     <>
-                                                        <Link onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="initial-poster-item info-to-store">
+                                                        <Link onClick={() => { TransferData(element,navigate) }} to="/elementinfo" key={element.netflix_id} className="initial-poster-item info-to-store">
                                                             <div className="initial-poster-item-info-poster-container">
                                                                 <div className="initial-poster-item-info">
                                                                     <div className="title-container">

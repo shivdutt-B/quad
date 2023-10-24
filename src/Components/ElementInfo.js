@@ -18,13 +18,14 @@ function ElementInfo(props) {
             TransferData(element)
             props.setLoadDetector(false)
             props.setProgress(40)
+            ContextItems.data.length = 0
             let fetchedData = await GenreAndMovieFetcher()
             ContextItems.updateData(fetchedData)
             props.setProgress(100)
             props.setLoadDetector(true)
         } catch (e) {
-            navigate('/error')
-         }
+            // navigate('/error')
+        }
     }
 
     useEffect(() => {
@@ -32,13 +33,15 @@ function ElementInfo(props) {
             try {
                 props.setProgress(40)
                 props.setLoadDetector(false)
-                // ContextItems.data.length = 0
+                console.log('code1')
                 let fetchedData = await GenreAndMovieFetcher()
-                console.log('check it')
+                console.log('code1a')
                 await ContextItems.updateData(fetchedData)
                 props.setLoadDetector(true)
                 props.setProgress(100)
-            } catch (e) { }
+            } catch (e) {
+                navigate('/error')
+            }
         })()
     }, [])
 

@@ -2,6 +2,7 @@
 async function fetchGeneres(netflix_id) {
 
    try {
+    console.log('code 0')
      var myHeaders = new Headers();
      myHeaders.append("apikey", `${process.env.REACT_APP_API_KEY}`);
  
@@ -14,7 +15,9 @@ async function fetchGeneres(netflix_id) {
      let apiData = await fetch(`https://api.apilayer.com/unogs/title/genres?netflix_id=${netflix_id}`, requestOptions)
      let toJson = await apiData.json()
      return toJson.results
-   } catch (error) { }
+   } catch (error) { 
+    // navigate('/error')
+   }
 }
 
 export default fetchGeneres

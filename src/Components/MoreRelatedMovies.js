@@ -20,7 +20,7 @@ function Movie(props) {
                 props.setProgress(100)
                 props.setLoadDetector(true)
             } catch (error) {
-
+                // navigate('/error')
             }
         })()
     }, [])

@@ -10,7 +10,7 @@ async function fetchDataCaller(limit, setLimit, setLoadDetector, setProgress, se
         setProgress(100)
         setLoadDetector(true)
     } catch (error) {
-        navigate('/error')
+        // navigate('/error')
     }
 }
 

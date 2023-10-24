@@ -23,7 +23,7 @@ function SearchQueryResult(props) {
             props.setLoadDetector(true)
             setCheckLoaded(true)
         } catch (error) {
-
+            // navigate('/error')
         }
     }
 
@@ -33,7 +33,7 @@ function SearchQueryResult(props) {
                 let searchQuery = ContextItems.query
                 await fetchApiData(searchQuery)
             } catch (error) {
-
+                // navigate('/error')
             }
         })()
     }, [ContextItems.query])

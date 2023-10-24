@@ -13,7 +13,9 @@ async function FetchByQuery(query) {
         let apiData = await fetch(`https://api.apilayer.com/unogs/search/titles?title=${query}`, requestOptions)
         let toJson = await apiData.json()
         return toJson.results
-    } catch (e) { }
+    } catch (e) {
+        // navigate('/error')
+     }
 
 }
 export default FetchByQuery

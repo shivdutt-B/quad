@@ -13,7 +13,9 @@ async function FetchData(limit) {
         let apiData = await fetch(`https://api.apilayer.com/unogs/search/titles?limit=${limit}`, requestOptions)
         let toJson = await apiData.json()
         return toJson.results
-    } catch (error) { }
+    } catch (error) {
+        // navigate('/error')
+     }
 
 }
 
