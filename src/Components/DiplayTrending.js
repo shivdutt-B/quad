@@ -6,8 +6,7 @@ import { StorageContext } from '../Context/StorageContext'
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect,useState } from 'react'
-import FetchData from '../GeneralJs/FetchData';
+import { useEffect, useState } from 'react'
 import fetchDataCaller from '../GeneralJs/FetchDataCaller'
 
 
@@ -15,21 +14,20 @@ function LandingPoster(props) {
     const ContextItems = useContext(StorageContext);
     const navigate = useNavigate()
     const [isDataLoaded, setIsDataLoaded] = useState(true)
-    
+
     useEffect(() => {
-        if (ContextItems.isDataLoaded){
-            console.log('loaded', isDataLoaded)
+        if (ContextItems.isDataLoaded) {
             props.setLimit(200)
-            fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector,props.setProgress, props.setData, navigate)
+            fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector, props.setProgress, props.setData, navigate)
             ContextItems.setIsDataLoaded(false)
         }
-    },[])
+    }, [])
 
     function loadingSeries() {
         let exoSeries = [];
         for (let i = 0; i < 10; i++) {
             exoSeries.push(
-                <div style={{ width: 250}} className="display-series-item info-to-store exo-series-element">
+                <div style={{ width: 250 }} className="display-series-item info-to-store exo-series-element">
                     <div className="display-series-poster exo-series-element-poster"></div>
                 </div>
             )
@@ -51,7 +49,7 @@ function LandingPoster(props) {
         let exoSeries = [];
         for (let i = 0; i < 10; i++) {
             exoSeries.push(
-                <div style={{ width: 250}} className="display-series-item info-to-store exo-series-element">
+                <div style={{ width: 250 }} className="display-series-item info-to-store exo-series-element">
                     <div className="display-series-poster exo-series-element-poster"></div>
                 </div>
             )
@@ -90,7 +88,7 @@ function LandingPoster(props) {
                                             }).sort(ContextItems.arrangeShow).slice(0, 6).map((element) => {
                                                 return (
                                                     <>
-                                                        <Link onClick={() => { TransferData(element,navigate) }} to="/elementinfo" key={element.netflix_id} className="initial-poster-item info-to-store">
+                                                        <Link onClick={() => { TransferData(element, navigate) }} to="/elementinfo" key={element.netflix_id} className="initial-poster-item info-to-store">
                                                             <div className="initial-poster-item-info-poster-container">
                                                                 <div className="initial-poster-item-info">
                                                                     <div className="title-container">
@@ -168,6 +166,7 @@ function LandingPoster(props) {
                                                 )
                                             })
                                         }
+
                                     </Slider>
                                 </div>
                             </div>
@@ -296,6 +295,7 @@ function LandingPoster(props) {
                             loadingMovies()
                         }
                     </>
+
             }
         </>
     )

@@ -4,9 +4,8 @@ import FetchGeneres from "./FetchGenres";
 import { StorageContext } from '../Context/StorageContext';
 import { useContext } from "react";
 
-async function GenreAndMovieFetcher() {
-  try {
-    console.log('code2')
+async function GenreAndMovieFetcher(navigate) {
+  try{
     let netflix_id = await JSON.parse(sessionStorage.getItem('movieInfo')).netflix_id;
     let results = await FetchGeneres(netflix_id)
     let generesRefactor = results.map((element) => {
@@ -14,9 +13,10 @@ async function GenreAndMovieFetcher() {
     })
     let generesMovie = await FetchGeneresMovie(generesRefactor)
     return generesMovie
-  } catch (error) {
-    // navigate('/error')
-   }
+  }
+  catch(error){
+    navigate('/error')
+  }
 
 }
 export default GenreAndMovieFetcher

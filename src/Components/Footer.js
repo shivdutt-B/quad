@@ -9,17 +9,17 @@ function Footer(props) {
                     <div className="social-link-list-container">
                         <ul className="social-link-list">
                             <li>
-                                <a href="#">
+                                <a href="https://github.com/shivdutt-B">
                                     <i className="fa-brands fa-github"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="https://www.linkedin.com/in/shivdutt-bhadakwad-07a462280/">
                                     <i className="fa-brands fa-linkedin-in"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="https://twitter.com/shivdutt059">
                                     <i className="fa-brands fa-twitter"></i>
                                 </a>
                             </li>

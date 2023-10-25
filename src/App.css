@@ -844,7 +844,28 @@ body {
   border-radius: 10px;
   animation: glow 2s linear infinite alternate;
 }
-
+.no-result-poster,.error-poster-container{
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+.back-to-start{
+  text-align: center;
+  font-weight: 554;
+  font-size:22px;
+}
+.back-to-start-link{
+  color:var(--text-color);
+  /* text-decoration: underline 3px solid var(--theam-color);
+  text-underline-offset: 4px; */
+}
+.back-to-start-link i{
+  font-size:18px;
+  margin-bottom: 5px;
+  position: relative;
+  bottom: 1.1px;
+  left: 4px;
+}
 @media only screen and (max-width: 490px) {
   .movie-container-loading {
     display: block;

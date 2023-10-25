@@ -1,7 +1,5 @@
 //Takes search query and fetch movies and series according to that.
 async function FetchByQuery(query) {
-
-    try {
         let myHeaders = new Headers();
         myHeaders.append("apikey", `${process.env.REACT_APP_API_KEY}`);
 
@@ -13,9 +11,6 @@ async function FetchByQuery(query) {
         let apiData = await fetch(`https://api.apilayer.com/unogs/search/titles?title=${query}`, requestOptions)
         let toJson = await apiData.json()
         return toJson.results
-    } catch (e) {
-        // navigate('/error')
-     }
 
 }
 export default FetchByQuery

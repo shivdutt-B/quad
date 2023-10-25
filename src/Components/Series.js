@@ -13,7 +13,7 @@ function Series(props) {
             await props.setLimit(props.limit + 200)
             fetchDataCaller(props.limit, props.setLimit, props.setLoadDetector,props.setProgress, props.setData, navigate)
         } catch (error) {
-            // navigate('/error')
+            navigate('/error')
         }
     }
 

@@ -5,11 +5,14 @@ import TransferData from '../GeneralJs/TransferData'
 import { StorageContext } from '../Context/StorageContext'
 import { useContext, useEffect } from 'react'
 import FetchByQuery from '../GeneralJs/FetchByQuery'
+import { useNavigate } from 'react-router-dom'
+import NoResultPoster from "../Assets/zeroresult.svg"
 
 function SearchQueryResult(props) {
 
     const ContextItems = useContext(StorageContext)
     const [checkLoaded, setCheckLoaded] = useState(false)
+    const navigate = useNavigate()
 
     async function fetchApiData(query) {
         try {
@@ -23,7 +26,7 @@ function SearchQueryResult(props) {
             props.setLoadDetector(true)
             setCheckLoaded(true)
         } catch (error) {
-            // navigate('/error')
+            navigate('/error')
         }
     }
 
@@ -33,7 +36,7 @@ function SearchQueryResult(props) {
                 let searchQuery = ContextItems.query
                 await fetchApiData(searchQuery)
             } catch (error) {
-                // navigate('/error')
+                navigate('/error')
             }
         })()
     }, [ContextItems.query])
@@ -109,11 +112,9 @@ function SearchQueryResult(props) {
                                     </div>
                                 </>
                                 :
-                                <div className="movie-heading">
-                                    <div className="movie-heading-title">
-                                        {ContextItems.searchQueryResults.length} Search Results
-                                    </div>
-                                </div>
+                                        <div className='no-result-poster'>
+                                            <img src ={NoResultPoster}/>
+                                        </div>
                         }
                     </>
                     :

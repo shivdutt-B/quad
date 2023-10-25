@@ -5,10 +5,12 @@ import TransferData from '../GeneralJs/TransferData'
 import { useState, useEffect, useContext } from 'react'
 import GenreAndMovieFetcher from '../GeneralJs/GenreAndMovieFetcher'
 import { StorageContext } from '../Context/StorageContext'
+import { useNavigate } from 'react-router-dom'
 
 
 function Movie(props) {
     const ContextItems = useContext(StorageContext)
+    const navigate = useNavigate()
     
     useEffect(() => {
         (async function () {
@@ -20,7 +22,7 @@ function Movie(props) {
                 props.setProgress(100)
                 props.setLoadDetector(true)
             } catch (error) {
-                // navigate('/error')
+                navigate('/error')
             }
         })()
     }, [])

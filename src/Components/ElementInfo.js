@@ -19,12 +19,12 @@ function ElementInfo(props) {
             props.setLoadDetector(false)
             props.setProgress(40)
             ContextItems.data.length = 0
-            let fetchedData = await GenreAndMovieFetcher()
+            let fetchedData = await GenreAndMovieFetcher(navigate)
             ContextItems.updateData(fetchedData)
             props.setProgress(100)
             props.setLoadDetector(true)
         } catch (e) {
-            // navigate('/error')
+            navigate('/error')
         }
     }
 
