@@ -4,7 +4,6 @@
   --global-bg: #141414;
   --text-color: #f5f5f5;
   --nav-bg: rgba(0, 0, 0, 0.833);
-  /* --global-font: "Teko", sans-serif; */
   --global-font: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
   --heading-font-size: 3rem;
   --big-screen-arrow-size: 1.5rem;
@@ -32,7 +31,6 @@ body {
   box-sizing: border-box;
   font-family: var(--global-font);
   background-color: var(--global-bg);
-  /* letter-spacing: 1px; */
 }
 
 /* Navbar */
@@ -103,7 +101,6 @@ body {
   transition: all 0.5s;
   cursor: pointer;
   margin-left: 10px;
-  /* color:var(--theam-color); */
 }
 
 .ham-menu-container i.fa-magnifying-glass {
@@ -130,7 +127,6 @@ body {
 .extend-search-bar {
   font-size: 23px;
   display: flex;
-  /* align-content: center; */
   padding: 5px;
   cursor: pointer;
   align-items: center;
@@ -151,9 +147,7 @@ body {
   background-color: #141414;
   color: var(--text-color);
   transition: all 0.5s ease-in-out;
-  /* width:25vw; */
   transform: scale(0, 0);
-  /* display: none; */
 }
 
 .search-box-visible {
@@ -243,7 +237,6 @@ body {
 .element-info-heading {
   font-size: var(--heading-font-size);
   color: var(--heading-color);
-  /* margin-left: 1rem; */
   font-weight: 554;
   display: flex;
   justify-content: space-between;
@@ -259,7 +252,6 @@ body {
 .display-movie-poster,
 .display-series-poster,
 .element-info-poster {
-  /* height: 300px; */
   height: 170px;
   width: 240px;
   overflow: hidden;
@@ -306,25 +298,19 @@ body {
 .display-series-heading-show-more a {
   height: 40px;
   font-size: 42px;
-  /* background-color: var(--theam-color); */
   display: flex;
-  /* border: 3px solid var(--theam-color); */
   align-items: center;
   height: 40px;
   width: 40px;
   text-align: center;
-  /* border-radius: 5px; */
   display: flex;
   justify-content: center;
   color: var(--text-color);
-  /* text-decoration: none; */
   transition: all 0.7s;
 }
 
 .display-movie-heading-show-more a:hover,
 .display-series-heading-show-more a:hover {
-  /* background-color: transparent; */
-  /* color: var(--theam-color); */
   color: #b6b6b6;
 }
 
@@ -338,7 +324,6 @@ body {
 .display-series-item,
 .selected-element-info {
   white-space: normal;
-  /* padding: 0 10px; */
   display: inline-block;
   object-fit: cover;
   user-select: none;
@@ -406,7 +391,6 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  /* max-width:500px; */
 }
 
 .initial-poster-item-small-screen,
@@ -423,7 +407,6 @@ body {
 
 .display-movie-item img,
 .display-series-item img {
-  /* transform:scale(1.1,1.1) */
   transition: all 0.5s;
 }
 
@@ -451,7 +434,6 @@ body {
 }
 
 .title-container h1 {
-  /* font-size: var(--heading-font-size); */
   color: var(--theam-color);
   margin: 0;
   width: 80%;
@@ -497,7 +479,6 @@ body {
   color: var(--text-color);
   border: 2px solid white;
   border-radius: 25px;
-  /* font-family: var(--global-font); */
 }
 
 .movie-show-more-btn i {
@@ -547,10 +528,7 @@ body {
   align-items: center;
   color: var(--text-color);
   text-decoration: none;
-  /* background-color: var(--theam-color); */
-  /* border: 3px solid var(--theam-color); */
   transition: all 0.7s;
-  /* border-radius: 8px; */
 }
 
 .social-link-list a i {
@@ -558,10 +536,6 @@ body {
   padding-bottom: 10px;
 }
 
-/* .social-link-list a:hover {
-  background-color: transparent;
-  color: var(--theam-color);
-} */
 
 /* Dedicated movie */
 .carousel-movie,
@@ -599,8 +573,6 @@ body {
 }
 
 .loading-screen-element-container {
-  /* background-color: #a5a4a4; */
-  /* animation: glow 2s linear infinite alternate; */
   border-radius: 10px;
 }
 
@@ -616,7 +588,6 @@ body {
   display: grid;
   grid-template-columns: 70% 30%;
   width: inherit;
-  /* animation: glow 2s linear infinite alternate; */
   height: 30px;
 }
 
@@ -818,11 +789,6 @@ body {
 
 .loading-home-data-small-screen {
   display: none !important;
-  /* border: 1px solid red;
-  width: 100%;
-  justify-content: space-between;
-  height: 30px;
-  margin-top: 10px; */
 }
 
 .loading-home-data-small-screen div {
@@ -856,8 +822,6 @@ body {
 }
 .back-to-start-link{
   color:var(--text-color);
-  /* text-decoration: underline 3px solid var(--theam-color);
-  text-underline-offset: 4px; */
 }
 .back-to-start-link i{
   font-size:18px;
@@ -872,7 +836,6 @@ body {
   }
 
   .loading-screen-element-container {
-    /* width:100%; */
     height: 250px;
     margin: 30px 0;
     max-width: 100%;
@@ -973,7 +936,6 @@ body {
 
   .loading-home-data-small-screen {
     display: flex !important;
-    border: 1px solid red;
     width: 100% !important;
     flex-direction: row !important;
   justify-content: space-between !important;
