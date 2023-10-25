@@ -20,7 +20,6 @@ import SearchQueryResults from './Components/SearchQueryResults';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ErrorPage from './Components/ErrorPage';
-// import { useNavigate } from "react-router-dom";
 
 
 

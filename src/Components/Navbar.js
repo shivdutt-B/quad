@@ -21,7 +21,9 @@ function Navbar() {
         <>
             <div className="nav-bar" id="top-point">
                 <div className="nav-bar-logo">
-                    <img src={Logo} alt=""/>
+                    <Link to='./' className='nav-bar-poster-link'>
+                        <img src={Logo} alt="" />
+                    </Link>
                     <div className="nav-bar-links">
                         <ul className="nav-bar-list nav-bar-list-hide">
                             <li className="nav-link">
@@ -43,10 +45,10 @@ function Navbar() {
                         ContextItems.updateQuery(inputData)
                         navigate('/search results');
                     }}>
-                            <input placeholder="Search your favorite show" className="search-box" type="text" onChange={(event) =>
-                                setInputData(event.target.value)
-                            } />
-                        <i class="fa-solid fa-magnifying-glass extend-search-bar" onClick={() => {console.log(this); document.getElementsByClassName('search-box')[0].classList.toggle('search-box-visible') }}></i>
+                        <input placeholder="Search your favorite show" className="search-box" type="text" onChange={(event) =>
+                            setInputData(event.target.value)
+                        } />
+                        <i class="fa-solid fa-magnifying-glass extend-search-bar" onClick={() => { console.log(this); document.getElementsByClassName('search-box')[0].classList.toggle('search-box-visible') }}></i>
 
                     </form>
                 </div>
