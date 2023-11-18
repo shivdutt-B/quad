@@ -2,8 +2,8 @@ import './App.css';
 import DisplayTrending from './Components/DiplayTrending';
 import Navbar from './Components/Navbar';
 import LoadingBar from 'react-top-loading-bar'
-import { useEffect, useState } from 'react'
-import FetchData from './GeneralJs/FetchData';
+import { useState } from 'react'
+// import FetchData from './GeneralJs/FetchData';
 import Footer from './Components/Footer'
 import ElementInfo from "./Components/ElementInfo"
 import MoreRelatedMovies from './Components/MoreRelatedMovies';

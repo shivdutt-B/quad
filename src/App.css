@@ -680,6 +680,14 @@ body {
   height: 450px !important;
   transition: all 0.5s;
 }
+/* .slick-slider{
+  height: 222px !important;
+  border:1px solid red;
+}
+.slick-slide {
+  height:220px !important;
+  border:1px solid green;
+} */
 
 .slick-arrow {
   height: 50px !important;

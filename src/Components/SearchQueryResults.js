@@ -34,11 +34,13 @@ function SearchQueryResult(props) {
         (async function () {
             try {
                 let searchQuery = ContextItems.query
+                console.log('CODE11', searchQuery)
                 await fetchApiData(searchQuery)
             } catch (error) {
                 navigate('/error')
             }
         })()
+        return () => {}
     }, [ContextItems.query])
 
     function genEle() {
