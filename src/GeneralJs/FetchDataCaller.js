@@ -1,6 +1,6 @@
 import FetchData from "./FetchData";
 
-async function fetchDataCaller(limit, setLimit, setLoadDetector, setProgress, setData, navigate) {
+async function fetchDataCaller(limit, setLimit, setLoadDetector, setProgress, setData) {
         setLoadDetector(false)
         setProgress(40)
         let moreData = await FetchData(limit)

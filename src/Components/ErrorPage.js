@@ -6,7 +6,7 @@ function ErrorPage() {
     <div className='error-poster-container'>
       <img src={ErrorPoster} />
       <div className="back-to-start">
-        <Link className="back-to-start-link" to="/"><i class="fa-solid fa-chevron-left"></i> Back</Link>
+        <Link className="back-to-start-link" to="/"><i className="fa-solid fa-chevron-left"></i> Back</Link>
       </div>
     </div>
   )

@@ -27,7 +27,7 @@ function Series(props) {
                             <div className="carousel-series">
                                 {
                                     props.data.filter((element) => {
-                                        return element.title_type == 'series'
+                                        return element.title_type === 'series'
                                     }).map((element) => {
                                         return (
                                             <Link onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="series-item info-to-store">
@@ -54,7 +54,7 @@ function Series(props) {
                     <div className="movie-show-more-btn-container">
                         <button onClick={fetchMoreData} className="movie-show-more-btn">
                             <span>Show More</span>
-                            <i class="fa-solid fa-angle-down"></i>
+                            <i className="fa-solid fa-angle-down"></i>
                         </button>
                     </div>
                 </>

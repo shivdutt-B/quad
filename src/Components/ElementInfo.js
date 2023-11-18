@@ -170,7 +170,7 @@ function ElementInfo(props) {
                     <>
                         {
                             (ContextItems.data).filter((element) => {
-                                return element.title_type == 'movie'
+                                return element.title_type === 'movie'
                             }).length > 0 &&
                             <div className="display-movie-container">
                                 <div className="display-movie-heading">
@@ -187,7 +187,7 @@ function ElementInfo(props) {
                                 <Slider {...ContextItems.movieAndSeriesSettings}>
                                     {
                                         ContextItems.Shuffler(ContextItems.data).filter((element) => {
-                                            return element.title_type == 'movie'
+                                            return element.title_type === 'movie'
                                         }).slice(0, 50).map((element) => {
                                             return (
                                                 <Link style={{ width: 250 }} onClick={() => { CallGenreAndDataOnClick(element) }} to="/elementinfo" key={element.netflix_id} className="display-movie-item info-to-store element-info-related-movies-series">
@@ -214,7 +214,7 @@ function ElementInfo(props) {
 
                         {
                             (ContextItems.data).filter((element) => {
-                                return element.title_type == 'series'
+                                return element.title_type === 'series'
                             }).length > 0 &&
                             <div className="display-series-container">
                                 <div className="display-series-heading">
@@ -231,7 +231,7 @@ function ElementInfo(props) {
                                 <Slider {...ContextItems.movieAndSeriesSettings}>
                                     {
                                         ContextItems.Shuffler(ContextItems.data).filter((element) => {
-                                            return element.title_type == 'series'
+                                            return element.title_type === 'series'
                                         }).slice(0, 50).map((element) => {
                                             return (
                                                 <Link style={{ width: 250 }} onClick={() => { CallGenreAndDataOnClick(element) }} to="/elementinfo" key={element.netflix_id} className="display-series-item info-to-store">

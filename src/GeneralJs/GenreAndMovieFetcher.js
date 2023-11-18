@@ -1,8 +1,6 @@
 //Takes generes and fetch movies and shows according to that.
 import FetchGeneresMovie from "./FetchGeneresMovie";
 import FetchGeneres from "./FetchGenres";
-import { StorageContext } from '../Context/StorageContext';
-import { useContext } from "react";
 
 async function GenreAndMovieFetcher(navigate) {
   try{

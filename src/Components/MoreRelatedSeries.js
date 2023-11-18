@@ -36,7 +36,7 @@ function Movie(props) {
                             <div className="carousel-movie">
                                 {
                                     ContextItems.data.filter((element) => {
-                                        return element.title_type == 'series'
+                                        return element.title_type === 'series'
                                     }).map((element) => {
                                         return (
                                             <Link onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="movie-item info-to-store">

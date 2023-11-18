@@ -13,7 +13,6 @@ import fetchDataCaller from '../GeneralJs/FetchDataCaller'
 function LandingPoster(props) {
     const ContextItems = useContext(StorageContext);
     const navigate = useNavigate()
-    const [isDataLoaded, setIsDataLoaded] = useState(true)
 
     useEffect(() => {
         if (ContextItems.isDataLoaded) {
@@ -186,7 +185,7 @@ function LandingPoster(props) {
                             <Slider {...ContextItems.movieAndSeriesSettings}>
                                 {
                                     ContextItems.Shuffler(props.data).filter((element) => {
-                                        return element.poster.length > 3 && element.title_type == 'movie'
+                                        return element.poster.length > 3 && element.title_type === 'movie'
                                     }).slice(0, 50).map((element) => {
                                         return (
                                             <Link style={{ width: 250 }} onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="display-movie-item info-to-store">
@@ -224,7 +223,7 @@ function LandingPoster(props) {
                             <Slider {...ContextItems.movieAndSeriesSettings}>
                                 {
                                     ContextItems.Shuffler(props.data).filter((element) => {
-                                        return element.poster.length > 3 && element.title_type == 'series'
+                                        return element.poster.length > 3 && element.title_type === 'series'
                                     }).slice(0, 50).map((element) => {
                                         return (
                                             <Link style={{ width: 250 }} onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="display-series-item info-to-store">

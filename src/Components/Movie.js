@@ -22,7 +22,7 @@ function Movie(props) {
                             <div className="carousel-movie">
                                 {
                                     props.data.filter((element) => {
-                                        return element.title_type == 'movie'
+                                        return element.title_type === 'movie'
                                     }).map((element) => {
                                         return (
                                             <>

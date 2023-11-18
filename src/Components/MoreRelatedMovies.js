@@ -2,7 +2,7 @@ import React from 'react'
 import Server from "../Assets/server.png"
 import { Link } from 'react-router-dom'
 import TransferData from '../GeneralJs/TransferData'
-import { useState, useEffect, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import GenreAndMovieFetcher from '../GeneralJs/GenreAndMovieFetcher'
 import { StorageContext } from '../Context/StorageContext'
 import { useNavigate } from 'react-router-dom'
@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 function Movie(props) {
     const ContextItems = useContext(StorageContext)
     const navigate = useNavigate()
-    
+
     useEffect(() => {
         (async function () {
             try {
@@ -36,7 +36,7 @@ function Movie(props) {
                             <div className="carousel-movie">
                                 {
                                     ContextItems.data.filter((element) => {
-                                        return element.title_type == 'movie'
+                                        return element.title_type === 'movie'
                                     }).map((element) => {
                                         return (
                                             <Link onClick={() => { TransferData(element) }} to="/elementinfo" key={element.netflix_id} className="movie-item info-to-store">
