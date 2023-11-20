@@ -33,9 +33,7 @@ function ElementInfo(props) {
             try {
                 props.setProgress(40)
                 props.setLoadDetector(false)
-                console.log('code1')
                 let fetchedData = await GenreAndMovieFetcher()
-                console.log('code1a')
                 await ContextItems.updateData(fetchedData)
                 props.setLoadDetector(true)
                 props.setProgress(100)

@@ -48,7 +48,7 @@ function Navbar() {
                         <input placeholder="Search your favorite show" className="search-box" type="text" onChange={(event) =>
                             setInputData(event.target.value)
                         } />
-                        <i class="fa-solid fa-magnifying-glass extend-search-bar" onClick={() => { console.log(this); document.getElementsByClassName('search-box')[0].classList.toggle('search-box-visible') }}></i>
+                        <i class="fa-solid fa-magnifying-glass extend-search-bar" onClick={() => {document.getElementsByClassName('search-box')[0].classList.toggle('search-box-visible') }}></i>
 
                     </form>
                 </div>
