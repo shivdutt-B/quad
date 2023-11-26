@@ -33,7 +33,7 @@ function SearchQueryResult(props) {
     useEffect(() => {
         (async function () {
             try {
-                let searchQuery = ContextItems.query
+                let searchQuery = sessionStorage.getItem('searchQuery')
                 await fetchApiData(searchQuery)
             } catch (error) {
                 navigate('/error')

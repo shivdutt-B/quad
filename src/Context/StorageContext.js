@@ -31,6 +31,7 @@ const StorageContextData = (props) => {
     //Update query when form is submitted before navigating to result page
     function updateQuery(queryValue) {
         setQuery(queryValue)
+        sessionStorage.setItem('searchQuery', queryValue)
     }
 
     //Carousel for shows on display trending page (home page)
