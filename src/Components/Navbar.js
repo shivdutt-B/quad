@@ -12,9 +12,15 @@ function Navbar() {
     const ContextItems = useContext(StorageContext)
 
     window.onresize = () => {
+        try{
         if (window.innerWidth > 700 && document.querySelector('.search-bar-small-screen').classList.contains('search-bar-small-screen-visible')) {
             ContextItems.handleSearchIcon()
         }
+        }
+        catch{
+            
+        }
+        
     }
 
     return (
